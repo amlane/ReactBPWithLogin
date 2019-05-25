@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import PublicPost from './PublicPost';
+
 class PublicPosts extends React.Component{
     state = {
         publicPosts: []
@@ -23,13 +25,9 @@ class PublicPosts extends React.Component{
     render(){
         return (
             <>
-            <div>This is home page</div>
             <div>{this.state.publicPosts.map( post => {
                 return (
-                <>
-                   <p>{post.username}</p>
-                   <img src={post.picture} alt={post.username} />
-                </>
+                <PublicPost post={post} key={post.id} />
                 )
 
             } )}</div>
